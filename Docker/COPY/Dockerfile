@@ -6,6 +6,6 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY index.html /usr/share/nginx/html/index.html
 
 # to run container infinetly
-CMD ["nginx", "-g", "daemon off;"] 
+CMD ["nginx", "-g", "deamon off;"] 
 
 
