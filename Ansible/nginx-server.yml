@@ -1,0 +1,18 @@
+- name: Create a inginx server and intall nginx and run server 
+  hosts: local 
+  connection: local
+  become: yes
+
+  tasks:
+  - name: create a instance
+    amazon.aws.ec2_instance:
+      name: "Nginx-instance"
+      instance_type: t2.micro
+      security_group: sg-0be90114720012f8f
+      image_id: ami-09c813fb71547fc4f
+      vpc_subnet_id: subnet-0e38ba39d42c9d73f
+    register: my_server_info
+
+  - name: print ec2 info 
+    ansible.builtin.debug:
+      msg: "{{my_server_info}}"
